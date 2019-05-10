@@ -7,7 +7,8 @@ import { RestApi } from '../shared/rest-api.service';
   styleUrls: ['./top-panel.component.css']
 })
 export class TopPanelComponent implements OnInit {
-
+  yearDrop:any;
+  countryDrop:any;
   countries = [
     {
       id:'US', text:'United States of America'

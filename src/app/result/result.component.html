@@ -1,3 +1,30 @@
-<p>
-  result works!
-</p>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <ng-container *ngFor="let data of dataList;let i = index;">
+                <ng-container *ngFor='let key of data;let i1 = index'>
+                    <tr *ngIf="i1==0 && i ==0">
+                        <th>MONTH</th>
+                        <th *ngFor="let key1 of objectKeys(key.group)">{{key1 | uppercase }}</th>
+                    </tr>
+                </ng-container>     
+            </ng-container>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let data of dataList;let i = index;">
+                <ng-container *ngFor='let key of data;let i1 = index'>
+                    <tr *ngIf="i1==0">
+                         <td [attr.rowspan]="data.length+ 1">{{key.month}}</td>
+                        <!-- <td>{{key.month}}</td> -->
+                    </tr>  
+                </ng-container>
+                <ng-container *ngFor='let key of data;let i1 = index'>
+                    <tr>
+                        <td *ngFor="let key1 of objectKeys(key.group)">{{key.group[key1]}}</td>
+                    </tr>
+                </ng-container>     
+            </ng-container>
+        </tbody>       
+      </table>
+</div>
+

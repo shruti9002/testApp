@@ -40,7 +40,6 @@ export class TopPanelComponent implements OnInit {
   }
 
   GetHoliday(country,year){
-    console.log(country,year)
     this.service.getDetails(country,year).subscribe((data) =>{
       this.HolidayList.emit(data);
     })

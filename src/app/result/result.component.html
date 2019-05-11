@@ -1,7 +1,7 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
-            <ng-container *ngFor="let data of dataList;let i = index;">
+            <ng-container *ngFor="let data of newDataList;let i = index;">
                 <ng-container *ngFor='let key of data;let i1 = index'>
                     <tr *ngIf="i1==0 && i ==0">
                         <th>MONTH</th>
@@ -11,10 +11,10 @@
             </ng-container>
         </thead>
         <tbody>
-            <ng-container *ngFor="let data of dataList;let i = index;">
+            <ng-container *ngFor="let data of newDataList;let i = index;">
                 <ng-container *ngFor='let key of data;let i1 = index'>
                     <tr *ngIf="i1==0">
-                         <td [attr.rowspan]="data.length+ 1">{{key.month}}</td>
+                         <td [attr.rowspan]="data.length+ 1">{{key.month }}</td>
                         <!-- <td>{{key.month}}</td> -->
                     </tr>  
                 </ng-container>

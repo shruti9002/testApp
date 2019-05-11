@@ -8,7 +8,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 export class ResultComponent implements OnChanges,OnInit {
 
   @Input() list;
-  dataList:any = []
+  dataList:any = [];
+  newDataList:any= [];
  
   constructor() { }
 
@@ -21,7 +22,6 @@ export class ResultComponent implements OnChanges,OnInit {
   } 
 
   ngOnChanges(){
-    console.log(this.list)
     const getDate = string => (([year, month, day]) => ({ day, month, year }))(string.split('-'));
  
     const groupBy = key => array =>
@@ -58,16 +58,17 @@ export class ResultComponent implements OnChanges,OnInit {
           var finalArr = [];
           finalArr.push((groupByMonth(arr)))
           this.dataList = finalArr
-          let goodResponse = [];
-          this.dataList.forEach(element => {
-             for(var k in element){
-               goodResponse.push(element[k])           
-             }
-          });
-          this.dataList = goodResponse
-          console.log(this.dataList)
+          
           }
       }
+      let goodResponse = [];
+      this.dataList.reverse().map((element,i) => {
+          for(var k in element){
+            if(element[k] != undefined && element[k] != 'undefined' && element[k] != null)
+            goodResponse.push(element[k])
+          }
+      });
+      this.newDataList = goodResponse
   }
 
 }

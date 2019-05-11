@@ -7,12 +7,14 @@ import { TopPanelComponent } from './top-panel/top-panel.component';
 import { ResultComponent } from './result/result.component'
 import { RestApi } from './shared/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderByPipe } from './shared/order-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopPanelComponent,
-    ResultComponent
+    ResultComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

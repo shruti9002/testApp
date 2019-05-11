@@ -14,7 +14,6 @@ export class AppComponent implements OnInit{
   }
 
   displayList($event){
-    console.log(1111111111111111111111)
     this.holidayList = $event
   }
 

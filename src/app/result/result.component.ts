@@ -63,10 +63,11 @@ export class ResultComponent implements OnChanges,OnInit {
       }
       let goodResponse = [];
       this.dataList.reverse().map((element,i) => {
-          for(var k in element){
-            if(element[k] != undefined && element[k] != 'undefined' && element[k] != null)
-            goodResponse.push(element[k])
-          }
+          const ordered = {};
+          Object.keys(element).sort().forEach(function(key) {
+            ordered[key] = element[key];
+            goodResponse.push(ordered[key])   
+          });
       });
       this.newDataList = goodResponse
   }
